@@ -1,0 +1,58 @@
+.board {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border: 2px solid #fff;
+}
+
+.node {
+  fill: grey;
+  stroke: lightgray;
+  stroke-width: 0.5px;
+  cursor: pointer;
+  transition: fill 0.2s ease;
+}
+
+.node:hover {
+  fill: lightgray;
+}
+
+.node.p1 {
+  fill: #007bff;
+}
+
+.node.p2 {
+  fill: #dc3545;
+}
+
+.node.selected {
+  stroke: #ffff00;
+  stroke-width: 2px;
+  fill: #ffff00 !important;
+}
+
+.diagonal{
+  stroke: lightgray;
+  stroke-width: 0.5px;
+}
+
+.node-label{
+  font-size: 2px;
+  fill: white;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  size: 10px;
+}
+
+.game-status {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.game-status p {
+  margin: 5px 0;
+  font-size: 14px;
+}
