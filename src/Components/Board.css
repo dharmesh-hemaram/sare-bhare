@@ -1,6 +1,87 @@
+/* Game container styles */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+}
+
+/* Player sections styles */
+.players-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.player-card {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.player-card.active {
+  border-color: #ffff00;
+  background-color: #3a3a2a;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+}
+
+.player-card.winner {
+  border-color: #00ff00;
+  background-color: #2a4a2a;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  animation: winner-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes winner-glow {
+  0% {
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.8);
+  }
+}
+
+.player-icon {
+  margin-right: 15px;
+}
+
+.player-icon-p1 {
+  fill: #007bff;
+  stroke: #0056b3;
+  stroke-width: 1px;
+}
+
+.player-icon-p2 {
+  fill: #dc3545;
+  stroke: #a71e2a;
+  stroke-width: 1px;
+}
+
+.player-info h3 {
+  margin: 0 0 5px 0;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.player-info p {
+  margin: 0;
+  color: #ccc;
+  font-size: 14px;
+}
+
 .board {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 142px);
   background-color: #000;
   border: 2px solid #fff;
 }
@@ -8,13 +89,31 @@
 .node {
   fill: grey;
   stroke: lightgray;
-  stroke-width: 0.5px;
+  stroke-width: 0.25px;
   cursor: pointer;
   transition: fill 0.2s ease;
 }
 
 .node:hover {
   fill: lightgray;
+}
+
+.node.mill-highlight {
+  fill: #00ff00;
+  stroke: #00cc00;
+  stroke-width: 1.5px;
+  animation: mill-pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes mill-pulse {
+  0% {
+    fill: #00ff00;
+    stroke-width: 1.5px;
+  }
+  100% {
+    fill: #66ff66;
+    stroke-width: 2px;
+  }
 }
 
 .node.p1 {
@@ -55,4 +154,32 @@
 .game-status p {
   margin: 5px 0;
   font-size: 14px;
+}
+
+/* Player piece styles */
+.player-piece {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.player-piece.p1 {
+  fill: #007bff;
+  stroke: #0056b3;
+  stroke-width: 0.3px;
+}
+
+.player-piece.p2 {
+  fill: #dc3545;
+  stroke: #a71e2a;
+  stroke-width: 0.3px;
+}
+
+.player-piece.selected {
+  stroke: #ffff00;
+  stroke-width: 1.5px;
+  r: 2.5;
+}
+
+.player-piece:hover {
+  opacity: 0.8;
 }
